@@ -13,6 +13,26 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.share,
+          ),
+          onPressed: ()=>Navigator.pop(context),
+        ),
+
+        title: Text("username"),
+        centerTitle: true,
+        actions: <Widget>[
+
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+            ),
+            onPressed: (){},
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 10),
         child: Container(
@@ -34,7 +54,7 @@ class _ProfileState extends State<Profile> {
                 names[random.nextInt(10)],
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 22,
+                  fontSize: 26,
                 ),
               ),
               SizedBox(height: 10),
@@ -45,43 +65,10 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               SizedBox(height: 20),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  FlatButton(
-                    child: Icon(
-                      Icons.message,
-                      color: Colors.white,
-                    ),
-                    color: Colors.grey,
-                    onPressed: (){},
-                  ),
-                  SizedBox(width: 10),
-                  FlatButton(
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                    color: Theme.of(context).accentColor,
-                    onPressed: (){},
-                  ),
-                  SizedBox(width: 10),
-                  FlatButton(
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                    color: Theme.of(context).accentColor,
-                    onPressed: (){},
-                  ),
 
-                ],
-              ),
-
-              SizedBox(height: 40),
 
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -160,6 +147,30 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               SizedBox(height: 20),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  FlatButton(
+                    child: Icon(
+                      Icons.message,
+                      color: Colors.white,
+                    ),
+                    color: Colors.grey,
+                    onPressed: (){},
+                  ),
+                  SizedBox(width: 10),
+                  FlatButton(
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                    ),
+                    color: Theme.of(context).accentColor,
+                    onPressed: (){},
+                  ),
+              ],
+              ),
+
               GridView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),

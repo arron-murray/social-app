@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_app_ui/util/data.dart';
 import 'dart:math';
-
 import 'package:social_app_ui/widgets/chat_bubble.dart';
 
 
@@ -164,7 +163,7 @@ class _ConversationState extends State<Conversation> {
 
                         trailing: IconButton(
                           icon: Icon(
-                            Icons.mic,
+                            Icons.arrow_forward_ios,
                             color: Theme.of(context).accentColor,
                           ),
                           onPressed: (){},

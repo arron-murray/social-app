@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:social_app_ui/screens/chats.dart';
-import 'package:social_app_ui/screens/friends.dart';
 import 'package:social_app_ui/screens/home.dart';
 import 'package:social_app_ui/screens/notifications.dart';
 import 'package:social_app_ui/screens/profile.dart';
 import 'package:social_app_ui/widgets/icon_badge.dart';
+import 'package:social_app_ui/screens/feed.dart';
+
 
 class MainScreen extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
         onPageChanged: onPageChanged,
         children: <Widget>[
           Chats(),
-          Friends(),
+          Feed(),
           Home(),
           Notifications(),
           Profile(),
@@ -56,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
 
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.group,
+                Icons.filter_hdr,
               ),
               title: Container(height: 0.0),
             ),

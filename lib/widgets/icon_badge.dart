@@ -37,7 +37,7 @@ class _IconBadgeState extends State<IconBadge> {
             padding: EdgeInsets.all(1),
             decoration: BoxDecoration(
               color: Colors.red,
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(10),
             ),
             constraints: BoxConstraints(
               minWidth: 11,

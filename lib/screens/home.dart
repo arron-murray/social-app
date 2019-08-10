@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_app_ui/util/data.dart';
-import 'package:social_app_ui/widgets/post_item.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,43 +7,68 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<Marker> allMarkers = [];
+
+  GoogleMapController _controller;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    allMarkers.add(Marker(
+        markerId: MarkerId('myMarker'),
+        draggable: true,
+        onTap: () {
+          print('Marker Tapped');
+        },
+        position: LatLng(40.7128, -74.0060)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Feeds"),
-        centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.filter_list,
+      //appBar: AppBar(
+        //title: Text('MAPS'),
+        //centerTitle: true,
+      //),
+      body: Stack(
+          children: [Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: GoogleMap(
+              initialCameraPosition:
+              CameraPosition(target: LatLng(40.7128, -74.0060), zoom: 12.0),
+              markers: Set.from(allMarkers),
+              onMapCreated: mapCreated,
             ),
-            onPressed: (){},
           ),
-        ],
-      ),
-
-
-      body: ListView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        itemCount: posts.length,
-        itemBuilder: (BuildContext context, int index) {
-
-          Map post = posts[index];
-          return PostItem(
-            img: post['img'],
-            name: post['name'],
-            dp: post['dp'],
-            time: post['time'],
-          );
-        },
+          ]
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.add,
-        ),
-        onPressed: (){},
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        child: Icon(Icons.add_circle_outline),
+        backgroundColor: Colors.blue,
       ),
     );
+  }
+
+  void mapCreated(controller) {
+    setState(() {
+      _controller = controller;
+    });
+  }
+
+  movetoBoston() {
+    _controller.animateCamera(CameraUpdate.newCameraPosition(
+      CameraPosition(target: LatLng(42.3601, -71.0589), zoom: 8.0, bearing: 45.0, tilt: 45.0),
+    ));
+  }
+
+  movetoNewYork() {
+    _controller.animateCamera(CameraUpdate.newCameraPosition(
+      CameraPosition(target: LatLng(40.7128, -74.0060), zoom: 12.0),
+    ));
   }
 }
