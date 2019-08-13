@@ -129,3 +129,4 @@ class _ChatsState extends State<Chats> with SingleTickerProviderStateMixin,
   @override
   bool get wantKeepAlive => true;
 }
+

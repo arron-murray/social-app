@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:social_app_ui/screens/nav.dart';
 import 'package:social_app_ui/screens/chats.dart';
-import 'package:social_app_ui/screens/home.dart';
 import 'package:social_app_ui/screens/notifications.dart';
 import 'package:social_app_ui/screens/profile.dart';
 import 'package:social_app_ui/widgets/icon_badge.dart';
@@ -27,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
         children: <Widget>[
           Chats(),
           Feed(),
-          Home(),
+          Nav (),
           Notifications(),
           Profile(),
         ],
@@ -113,3 +114,4 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 }
+

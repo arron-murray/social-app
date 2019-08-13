@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:social_app_ui/util/data.dart';
 
@@ -10,6 +9,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   static Random random = Random();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,18 +18,16 @@ class _ProfileState extends State<Profile> {
           icon: Icon(
             Icons.share,
           ),
-          onPressed: ()=>Navigator.pop(context),
+          onPressed: () => Navigator.pop (context),
         ),
-
         title: Text("username"),
         centerTitle: true,
         actions: <Widget>[
-
           IconButton(
             icon: Icon(
               Icons.settings,
             ),
-            onPressed: (){},
+            onPressed: () {},
           ),
         ],
       ),
@@ -41,8 +39,7 @@ class _ProfileState extends State<Profile> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-
-              SizedBox(height: 60),
+              SizedBox (height: 20),
               CircleAvatar(
                 backgroundImage: AssetImage(
                   "assets/cm${random.nextInt(10)}.jpeg",
@@ -58,15 +55,11 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               SizedBox(height: 10),
-
               Text(
                 "Description information should be here",
-                style: TextStyle(
-                ),
+                style: TextStyle (),
               ),
               SizedBox(height: 20),
-
-
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
@@ -84,14 +77,12 @@ class _ProfileState extends State<Profile> {
                         SizedBox(height: 4),
                         Text(
                           "FOLLOWERS",
-                          style: TextStyle(
-                          ),
+                          style: TextStyle (),
                         ),
                       ],
                     ),
-
                     Column(
-                      children: <Widget>[
+                      children: [
                         Text(
                           random.nextInt(100).toString(),
                           style: TextStyle(
@@ -102,12 +93,10 @@ class _ProfileState extends State<Profile> {
                         SizedBox(height: 4),
                         Text(
                           "POINTS",
-                          style: TextStyle(
-                          ),
+                          style: TextStyle (),
                         ),
                       ],
                     ),
-
                     Column(
                       children: <Widget>[
                         Text(
@@ -120,8 +109,7 @@ class _ProfileState extends State<Profile> {
                         SizedBox(height: 4),
                         Text(
                           "MAP PINS",
-                          style: TextStyle(
-                          ),
+                          style: TextStyle (),
                         ),
                       ],
                     ),
@@ -137,53 +125,50 @@ class _ProfileState extends State<Profile> {
                         SizedBox(height: 4),
                         Text(
                           "COUNTRIES",
-                          style: TextStyle(
-                          ),
+                          style: TextStyle (),
                         ),
                       ],
                     ),
-
                   ],
                 ),
               ),
               SizedBox(height: 20),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  FlatButton(
-                    child: Icon(
-                      Icons.message,
-                      color: Colors.white,
-                    ),
-                    color: Colors.grey,
-                    onPressed: (){},
+              Row
+                (children: [
+                Expanded (
+                  child: FlatButton (
+                    child: Text ("Approve"),
+                    onPressed: () => null,
                   ),
-                  SizedBox(width: 10),
-                  FlatButton(
-                    child: Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                    ),
-                    color: Theme.of(context).accentColor,
-                    onPressed: (){},
+                ),
+                Expanded (
+                  child: FlatButton (
+                    child: Text ("Reject"),
+                    onPressed: () => null,
                   ),
-              ],
-              ),
-
+                ),
+                Expanded (
+                  child: FlatButton (
+                    child: Text ("Need Revise"),
+                    onPressed: () {},
+                    color: Colors.blue,
+                  ),
+                )
+              ]),
+              SizedBox (height: 40),
               GridView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 primary: false,
                 padding: EdgeInsets.all(5),
-                itemCount: 15,
+                itemCount: 14,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 200 / 150,
                 ),
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
-                    padding: EdgeInsets.all(5.0),
+                    padding: EdgeInsets.all (1.0),
                     child: Image.asset(
                       "assets/cm${random.nextInt(10)}.jpeg",
                       fit: BoxFit.cover,

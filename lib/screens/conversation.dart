@@ -3,8 +3,6 @@ import 'package:social_app_ui/util/data.dart';
 import 'dart:math';
 import 'package:social_app_ui/widgets/chat_bubble.dart';
 
-
-
 class Conversation extends StatefulWidget {
   @override
   _ConversationState createState() => _ConversationState();
@@ -27,7 +25,7 @@ class _ConversationState extends State<Conversation> {
         title: InkWell(
           child: Row(
 
-            children: <Widget>[
+            children: [
               Padding(
                 padding: EdgeInsets.only(left: 0.0, right: 10.0),
                 child: CircleAvatar(
